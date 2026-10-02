@@ -1,0 +1,40 @@
+# Operating system and editor files
+.DS_Store
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments and secrets
+.venv/
+venv/
+env/
+.env
+.env.*
+
+# Notebook temporary files
+.ipynb_checkpoints/
+
+# Dataset files
+cell_images/
+malaria_data/
+data/
+datasets/
+*.zip
+
+# Model checkpoints and generated training files
+*.pt
+*.pth
+*.ckpt
+checkpoints/
+runs/
+
+# Temporary files
+*.tmp
+*.log
+*~
