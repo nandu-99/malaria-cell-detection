@@ -1,0 +1,39 @@
+{
+  "model": "DANet-S",
+  "base_paper_doi": "10.1038/s41598-025-20402-1",
+  "num_classes": 2,
+  "class_mapping": {
+    "Uninfected": 0,
+    "Parasitized": 1
+  },
+  "input_size": [
+    224,
+    224
+  ],
+  "batch_size": 64,
+  "total_epochs": 75,
+  "optimizer": "RMSprop",
+  "loss": "NLLLoss",
+  "scheduler": "OneCycleLR",
+  "checkpoint_criterion": "lowest validation loss",
+  "seed": 42,
+  "training_phases": [
+    {
+      "epochs": "1-24",
+      "maximum_learning_rate": 0.001,
+      "mixed_precision": true
+    },
+    {
+      "epochs": "25-75",
+      "maximum_learning_rate": 0.0005,
+      "mixed_precision": false,
+      "restart_from_epoch": 24
+    }
+  ],
+  "selected_epoch": 67,
+  "selected_validation_loss": 0.0959623521950815,
+  "selected_validation_accuracy": 0.966255442670537,
+  "model_file": "danet_s_best_final.pth",
+  "model_sha256": "d08ff52e3c0682fadf0b23b631b916305405e1c9693e2f581dec26b5ba4f0aa1",
+  "test_set_evaluated": false
+}

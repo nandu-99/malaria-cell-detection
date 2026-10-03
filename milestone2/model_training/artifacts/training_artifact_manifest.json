@@ -1,0 +1,42 @@
+[
+  {
+    "file": "danet_s_best_final.pth",
+    "size_mb": 8.897,
+    "sha256": "d08ff52e3c0682fadf0b23b631b916305405e1c9693e2f581dec26b5ba4f0aa1"
+  },
+  {
+    "file": "danet_training_config_final.json",
+    "size_mb": 0.001,
+    "sha256": "046ca02617edef9da18e273299e43777f4493158aa53e56bfc6ea58bccfd4c35"
+  },
+  {
+    "file": "danet_training_history_final.csv",
+    "size_mb": 0.009,
+    "sha256": "4be2a44d8298eb0b0a67b8e313800c72533ff924ed152324baac14701bae4d12"
+  },
+  {
+    "file": "danet_training_summary.md",
+    "size_mb": 0.002,
+    "sha256": "a1b5b8182661c87a903e4c878c4c2037b414bab256baa34888d705f5668a7f3c"
+  },
+  {
+    "file": "figures/training_validation_loss.png",
+    "size_mb": 0.123,
+    "sha256": "441f1345504c3c54ecef75ef4d906d3ff882a19501ef3f06736f1ef0f4912cc4"
+  },
+  {
+    "file": "figures/training_validation_accuracy.png",
+    "size_mb": 0.112,
+    "sha256": "8a66982858995d847f1d50f146c8629a3c669b47caa55c964cc002d4060282ec"
+  },
+  {
+    "file": "figures/learning_rate_schedule.png",
+    "size_mb": 0.092,
+    "sha256": "3fe961e3918154168445e57fee1fab53955e05e962710e32269014c044ebb477"
+  },
+  {
+    "file": "../../../src/danet.py",
+    "size_mb": 0.005,
+    "sha256": "6823a446eb4b4f104837ddb1598074e5cb7de1dcd00e017e7e3a679511495cc2"
+  }
+]
