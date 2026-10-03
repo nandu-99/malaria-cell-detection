@@ -1,0 +1,28 @@
+{
+  "model": "DANet-S with LogSoftMax",
+  "checkpoint_file": "danet_s_best_final.pth",
+  "checkpoint_epoch": 67,
+  "checkpoint_sha256": "d08ff52e3c0682fadf0b23b631b916305405e1c9693e2f581dec26b5ba4f0aa1",
+  "input_size": [
+    224,
+    224
+  ],
+  "batch_size": 64,
+  "data_loader_workers": 0,
+  "test_samples": 5512,
+  "test_transform": [
+    "Resize((224, 224))",
+    "ToTensor()"
+  ],
+  "loss": "NLLLoss with sum reduction",
+  "device": "cuda",
+  "random_seed": 42,
+  "class_mapping": {
+    "Uninfected": 0,
+    "Parasitized": 1
+  },
+  "split_protocol": "stratified image-level split",
+  "pytorch_version": "2.11.0+cu130",
+  "torchvision_version": "0.26.0+cu130",
+  "base_paper_doi": "10.1038/s41598-025-20402-1"
+}

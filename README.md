@@ -10,7 +10,7 @@ dataset.
 |---|---|
 | Manasa | Dataset preparation and PyTorch data pipeline |
 | Shanker | DANet model implementation and training |
-| Vivekananda | Repository structure, base-paper revision, and contribution documentation |
+| Vivekananda | Repository structure, base-paper revision, final evaluation, and documentation |
 
 ## Base paper
 
@@ -54,14 +54,49 @@ malaria-cell-detection/
 |   |-- milestone1.pdf
 |   `-- malaria_literature_review.pdf
 |-- milestone2/
-|   `-- README.md
+|   |-- README.md
+|   |-- data_preparation/
+|   |   |-- malaria_data_preparation_pipeline.ipynb
+|   |   `-- artifacts/
+|   |-- model_training/
+|   |   |-- malaria_danet_training_evaluator_ready.ipynb
+|   |   `-- artifacts/
+|   `-- model_evaluation/
+|       |-- malaria_danet_final_evaluation_evaluator_ready.ipynb
+|       `-- artifacts/
 `-- src/
-    `-- README.md
+    |-- README.md
+    `-- danet.py
 ```
 
-Each member will add their assigned implementation, notebooks, and artifacts
-through their own issue, branch, commits, and pull request. Manasa will add the
-Member 1 dataset preparation work separately.
+The Milestone 2 directory separates dataset preparation, model training, and
+final evaluation. Each workflow contains an evaluator-ready notebook and its
+supporting reproducibility artifacts.
+
+## Reproduced results
+
+The selected Epoch 67 checkpoint was evaluated once on the reserved test split
+of 5,512 images.
+
+| Metric | Result |
+|---|---:|
+| Test loss | 0.110878 |
+| Accuracy | 96.34% |
+| Precision | 96.88% |
+| Recall or sensitivity | 95.75% |
+| Specificity | 96.92% |
+| F1-score | 96.31% |
+| ROC-AUC | 0.9919 |
+| Average precision | 0.9926 |
+
+The base paper reports 97.95% accuracy for DANet-S with LogSoftMax. The
+reproduction is 1.61 percentage points lower. Detailed results, figures, error
+analysis, and the comparison table are available in
+[Milestone 2 model evaluation](milestone2/model_evaluation/).
+
+The selected model checkpoint is stored externally because model checkpoints
+are excluded from the repository. Its SHA-256 checksum is recorded in the
+evaluation configuration and training summary.
 
 ## Milestone status
 
@@ -69,7 +104,7 @@ Member 1 dataset preparation work separately.
 |---|---|
 | Milestone 1: literature review and initial paper selection | Completed |
 | Base-paper revision after evaluator feedback | Documented |
-| Milestone 2: dataset preparation, model training, and evaluation | In progress |
+| Milestone 2: dataset preparation, model training, and evaluation | Completed |
 | Milestone 3: hypothesis, prediction, and introduction | Not started |
 
 ## Contribution workflow
@@ -86,3 +121,11 @@ write meaningful commit messages, and request review before integration. See
 - Report sensitivity or recall and AUC in addition to accuracy.
 - Clearly document patient overlap and other evaluation limitations.
 - Do not make clinical claims from the experimental results.
+
+## Evaluation limitation
+
+The project follows the base paper's stratified image-level split. Images from
+the same mapped patient may occur across training, validation, and test sets.
+This overlap can make the reported image-level performance more optimistic than
+a patient-independent evaluation. The results are experimental and do not
+establish clinical validity.

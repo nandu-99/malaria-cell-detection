@@ -1,0 +1,72 @@
+[
+  {
+    "file": "test_predictions.csv",
+    "size_mb": 0.78,
+    "sha256": "6549e7538c78bfb2537dad295eb01dfa9e965cea48e5479bc35280c20efba07c"
+  },
+  {
+    "file": "test_metrics.json",
+    "size_mb": 0.001,
+    "sha256": "96071cc7cdd3458ecfa1a6f4e0769b9d2a249a9b47eef756b66b1319e039aea0"
+  },
+  {
+    "file": "test_classification_report.csv",
+    "size_mb": 0.0,
+    "sha256": "3260a9c11a2e996d3a93098ec4e4a2f1a5a0d369b4fad856dc52f56c85036eae"
+  },
+  {
+    "file": "prediction_examples.csv",
+    "size_mb": 0.001,
+    "sha256": "f2705a25f3b8ab7fd4441d0862bf63c415deea2cfd3d4d0a62c5fd312d4b6d1d"
+  },
+  {
+    "file": "base_paper_comparison.csv",
+    "size_mb": 0.0,
+    "sha256": "d06cee4b9f990e62a5e1095a64b29e0bdaa3714a506e9fa32cd798e70e838e1b"
+  },
+  {
+    "file": "danet_evaluation_summary.md",
+    "size_mb": 0.002,
+    "sha256": "3c35a8ba9bf092fbbec2ce9b98cdf7011863275578fa2740d3ff49062d9a9e52"
+  },
+  {
+    "file": "figures/test_confusion_matrix.png",
+    "size_mb": 0.102,
+    "sha256": "95402e85eaaf4b7fd494d55c66ff03f12143e5249ee6ded2cee9729bb36591f8"
+  },
+  {
+    "file": "figures/test_roc_curve.png",
+    "size_mb": 0.141,
+    "sha256": "63eec6590dfdd413dca744f88d7bf80634dd6a0536406bf6b7e9e6859494f75e"
+  },
+  {
+    "file": "figures/test_precision_recall_curve.png",
+    "size_mb": 0.103,
+    "sha256": "9df77d8d878baebc6ba994a4b7d8892a01225ae3c92a3f4784e0cfa9d9ae8f75"
+  },
+  {
+    "file": "figures/test_metric_comparison.png",
+    "size_mb": 0.107,
+    "sha256": "aa759c5bcbca4f0d60c0c4ac3c05adf30ac8f1d9e4a0680b5acf4812e724a162"
+  },
+  {
+    "file": "figures/prediction_examples.png",
+    "size_mb": 0.377,
+    "sha256": "203e78150df52d6811a333e24acb694894db9af1fcf15804d93ca0dac3950799"
+  },
+  {
+    "file": "figures/prediction_confidence_distribution.png",
+    "size_mb": 0.101,
+    "sha256": "fe49ab69c57bf6a82afc3c72eb4c07b5ece352ad1e3f9146fa142e1cf67267b2"
+  },
+  {
+    "file": "figures/base_paper_comparison.png",
+    "size_mb": 0.195,
+    "sha256": "3ab29ea43a1eca327697db4c8288d37bb571d6d3ba2c61ab2e6e083fe68da36f"
+  },
+  {
+    "file": "evaluation_config.json",
+    "size_mb": 0.001,
+    "sha256": "8ad939980baf6041f5ad4d513fc58aca036f75c42f5d88a9cc37c73770c70045"
+  }
+]

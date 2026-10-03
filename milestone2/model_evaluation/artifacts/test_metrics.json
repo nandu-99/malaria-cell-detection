@@ -1,0 +1,23 @@
+{
+  "checkpoint_epoch": 67,
+  "test_samples": 5512,
+  "test_loss": 0.11087833183441792,
+  "accuracy": 0.9633526850507983,
+  "precision": 0.9687958883994127,
+  "recall_sensitivity": 0.9575471698113207,
+  "specificity": 0.9691582002902758,
+  "f1_score": 0.9631386861313869,
+  "roc_auc": 0.9918874059710862,
+  "true_negatives": 2671,
+  "false_positives": 85,
+  "false_negatives": 117,
+  "true_positives": 2639,
+  "evaluation_minutes": 0.3683528753166684,
+  "class_mapping": {
+    "Uninfected": 0,
+    "Parasitized": 1
+  },
+  "split_protocol": "stratified image-level split",
+  "average_precision": 0.9926145307143193,
+  "incorrect_predictions": 202
+}
