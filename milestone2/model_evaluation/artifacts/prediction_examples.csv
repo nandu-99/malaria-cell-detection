@@ -1,0 +1,9 @@
+relative_path,true_label,predicted_label,uninfected_probability,parasitized_probability,confidence,correct,true_class,predicted_class,example_type
+Uninfected/C222ThinF_IMG_20151115_151015_cell_75.png,0,0,0.9999746084213257,2.539751585572958e-05,0.9999746084213257,True,Uninfected,Uninfected,Correct
+Uninfected/C53P14thinF_IMG_20150726_114404_cell_120.png,0,0,0.999971866607666,2.815036896208767e-05,0.999971866607666,True,Uninfected,Uninfected,Correct
+Parasitized/C136P97ThinF_IMG_20151005_141552_cell_2.png,1,1,6.886033224873245e-05,0.9999310970306396,0.9999310970306396,True,Parasitized,Parasitized,Correct
+Parasitized/C33P1thinF_IMG_20150619_115808a_cell_206.png,1,1,7.096669287420809e-05,0.9999290704727173,0.9999290704727173,True,Parasitized,Parasitized,Correct
+Uninfected/C128P89ThinF_IMG_20151004_131753_cell_99.png,0,1,0.00016064541705418378,0.9998393058776855,0.9998393058776855,False,Uninfected,Parasitized,False positive
+Uninfected/C69P30N_ThinF_IMG_20150819_135421_cell_157.png,0,1,0.0007855226285755634,0.9992144703865051,0.9992144703865051,False,Uninfected,Parasitized,False positive
+Parasitized/C116P77ThinF_IMG_20150930_171954_cell_85.png,1,0,0.9998074173927307,0.00019255805818829685,0.9998074173927307,False,Parasitized,Uninfected,False negative
+Parasitized/C173P134NThinF_IMG_20151130_120046_cell_246.png,1,0,0.9988750219345093,0.001125028938986361,0.9988750219345093,False,Parasitized,Uninfected,False negative
