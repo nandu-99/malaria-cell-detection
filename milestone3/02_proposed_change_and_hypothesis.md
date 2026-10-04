@@ -4,7 +4,7 @@
 
 ## Primary Change
 
-The proposed change is to add mild ColorJitter augmentation to the training pipeline.
+We will add mild ColorJitter to the training steps.
 
 The baseline training pipeline uses:
 
@@ -29,19 +29,19 @@ ColorJitter will be applied only to training images. Validation and test images 
 
 ## Formal Hypothesis
 
-Adding mild ColorJitter augmentation during training will improve DANet-S generalization to realistic changes in stain intensity and microscope illumination. The model will see a wider range of colour conditions while keeping the cell structure and class label unchanged.
+Adding mild ColorJitter during training will help DANet-S work better when stain strength and microscope lighting change. The model will see more colour conditions while the cell structure and class label stay the same.
 
 ## Reasoning
 
-The baseline already changes image orientation through rotation and flips. These operations do not represent colour or illumination differences.
+The baseline changes image orientation through rotation and flips. These steps do not represent colour or lighting differences.
 
-ColorJitter changes brightness, contrast, saturation, and hue within small limits. This may reduce dependence on one narrow colour pattern and encourage the model to focus on parasite structure and cell appearance.
+ColorJitter makes small changes to brightness, contrast, saturation, and hue. This may stop the model from depending too much on one colour pattern. It may help the model focus more on parasite structure and cell appearance.
 
-The augmentation values are intentionally mild. Strong colour changes could create unrealistic blood-smear images and damage useful parasite features.
+The changes are kept small. Strong colour changes could make unrealistic blood-smear images and hide useful parasite features.
 
 ## Single-Variable Rule
 
-Only the training augmentation will change. The experiment will not change the model architecture, loss function, optimizer, scheduler, split manifest, or evaluation method.
+Only the training augmentation will change. The model, loss function, optimizer, scheduler, split manifest, and test method will stay the same.
 
 This makes the comparison clear:
 
@@ -66,4 +66,4 @@ This makes the comparison clear:
 
 ## Condition Before Implementation
 
-This hypothesis and its numerical predictions must be submitted before ColorJitter is added to the training code or any modified experiment is run.
+We must submit this hypothesis and its predicted values before adding ColorJitter or running the new experiment.

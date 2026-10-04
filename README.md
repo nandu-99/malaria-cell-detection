@@ -1,7 +1,7 @@
 # Malaria Cell Detection
 
-Computer vision research-reproduction project for classifying segmented red
-blood cells as parasitized or uninfected using the NIH/NLM Malaria Cell Images
+This project uses computer vision to classify segmented red blood cells as
+parasitized or uninfected. It uses the public NIH/NLM Malaria Cell Images
 dataset.
 
 ## Team
@@ -14,9 +14,9 @@ dataset.
 
 ## Base paper
 
-The original Milestone 1 submission selected Rajaraman et al. (2018) and a
-ResNet50 feature-extraction baseline. Following evaluator feedback, the team
-changed the reproduction target to:
+The original Milestone 1 submission selected Rajaraman et al. (2018) with a
+ResNet50 baseline. After evaluator feedback, the team changed the base paper
+to:
 
 > A. Ali et al., "DANet: A lightweight dilated attention network for malaria
 > parasite detection," *Scientific Reports*, vol. 15, 36689, 2025.
@@ -25,8 +25,8 @@ changed the reproduction target to:
 - Official implementation: <https://github.com/asfakali/DANet>
 - Selected baseline: DANet-S with LogSoftMax
 
-The reason for this change and the updated reproducibility checklist are
-recorded in [Base Paper Revision After Milestone 1](docs/base_paper_revision_after_m1.md).
+The reason for this change is recorded in
+[Base Paper Revision After Milestone 1](docs/base_paper_revision_after_m1.md).
 
 ## Dataset
 
@@ -64,14 +64,18 @@ malaria-cell-detection/
 |   `-- model_evaluation/
 |       |-- malaria_danet_final_evaluation_evaluator_ready.ipynb
 |       `-- artifacts/
+|-- milestone3/
+|   |-- 01_introduction_and_baseline.md
+|   |-- 02_proposed_change_and_hypothesis.md
+|   |-- 03_prediction_and_experiment_plan.md
+|   `-- milestone3_hypothesis_prediction_introduction.pdf
 `-- src/
     |-- README.md
     `-- danet.py
 ```
 
-The Milestone 2 directory separates dataset preparation, model training, and
-final evaluation. Each workflow contains an evaluator-ready notebook and its
-supporting reproducibility artifacts.
+The Milestone 2 directory separates data preparation, model training, and
+final evaluation. Each part contains a clear notebook and its saved files.
 
 ## Reproduced results
 
@@ -89,14 +93,33 @@ of 5,512 images.
 | ROC-AUC | 0.9919 |
 | Average precision | 0.9926 |
 
-The base paper reports 97.95% accuracy for DANet-S with LogSoftMax. The
-reproduction is 1.61 percentage points lower. Detailed results, figures, error
-analysis, and the comparison table are available in
+The base paper reports 97.95% accuracy for DANet-S with LogSoftMax. Our result
+is 1.61 percentage points lower. Detailed results, figures, error analysis,
+and the comparison table are available in
 [Milestone 2 model evaluation](milestone2/model_evaluation/).
 
 The selected model checkpoint is stored externally because model checkpoints
 are excluded from the repository. Its SHA-256 checksum is recorded in the
 evaluation configuration and training summary.
+
+## Milestone 3 hypothesis and prediction
+
+Milestone 3 proposes one change to the baseline training pipeline: mild
+ColorJitter. We expect it to help the model handle small changes in brightness,
+contrast, saturation, and hue. The model and training settings will stay the
+same.
+
+We recorded the hypothesis, predicted values, experiment plan, success rules,
+and limitations before implementing the change.
+
+### Required evaluation submission
+
+1. **Notebook with reproduced results:**
+   [DANet-S final evaluation notebook](milestone2/model_evaluation/malaria_danet_final_evaluation_evaluator_ready.ipynb)
+2. **Presentation with the brief introduction and hypothesis:**
+   The presentation will be submitted separately and is not stored in this repository.
+3. **Academic report with the full introduction:**
+   [Milestone 3 report](milestone3/milestone3_hypothesis_prediction_introduction.pdf)
 
 ## Milestone status
 
@@ -105,7 +128,7 @@ evaluation configuration and training summary.
 | Milestone 1: literature review and initial paper selection | Completed |
 | Base-paper revision after evaluator feedback | Documented |
 | Milestone 2: dataset preparation, model training, and evaluation | Completed |
-| Milestone 3: hypothesis, prediction, and introduction | Not started |
+| Milestone 3: hypothesis, prediction, and introduction | Completed |
 
 ## Contribution workflow
 
