@@ -80,4 +80,4 @@ The study uses a single public dataset. Performance on images from other laborat
 ## Effect on later milestones
 
 - **Milestone 2:** Prepare the reproducible data pipeline, implement DANet-S, train the model, and record experiments using the shared protocol.
-- **Milestone 3:** Evaluate the selected model, analyse errors, compare reproduced results with the paper, document limitations, and prepare the final presentation and report.
+- **Milestone 3:** Present the introduction, record the hypothesis and predicted results, define the controlled experiment plan, document limitations, and prepare the final report.
