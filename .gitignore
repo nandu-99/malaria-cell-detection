@@ -38,3 +38,7 @@ runs/
 *.tmp
 *.log
 *~
+
+# Presentation and LaTeX source files shared separately
+*.pptx
+*.tex

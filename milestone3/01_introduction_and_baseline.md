@@ -4,13 +4,13 @@
 
 ## Problem
 
-Malaria is caused by parasites that infect red blood cells. Microscopy is commonly used to inspect blood-smear images, but manual inspection takes time and depends on trained experts. An automated image classifier can support research by separating parasitized cells from uninfected cells.
+Malaria parasites infect red blood cells. Trained experts often check stained blood-smear images under a microscope. This work takes time and needs careful attention. A computer vision model can support research by classifying cells as parasitized or uninfected.
 
-This project does not make clinical claims. It studies image classification performance on one public dataset.
+This project studies image classification on one public dataset. It does not make clinical claims.
 
 ## Dataset
 
-The project uses the NIH/NLM Malaria Cell Images dataset. It contains 27,558 segmented RGB cell images:
+We use the NIH/NLM Malaria Cell Images dataset. It contains 27,558 segmented RGB cell images:
 
 - 13,779 parasitized images
 - 13,779 uninfected images
@@ -25,13 +25,13 @@ Images are resized to 224 x 224 pixels. Training images use rotation and horizon
 
 ## Base Paper and Model
 
-The selected base paper is *DANet: A Lightweight Dilated Attention Network for Malaria Parasite Detection* by Ali et al. The selected model is DANet-S with LogSoftMax output.
+Our base paper is *DANet: A Lightweight Dilated Attention Network for Malaria Parasite Detection* by Ali et al. We use DANet-S with LogSoftMax output.
 
-DANet-S uses dilated attention blocks to capture features at different spatial scales. The reproduced binary model has 2,310,842 trainable parameters.
+DANet-S uses dilated attention blocks to learn small parasite features and wider cell patterns. Our binary model has 2,310,842 trainable parameters.
 
 ## Reproduced Baseline
 
-The model was trained for 75 epochs. The checkpoint with the lowest validation loss was selected at Epoch 67.
+We trained the model for 75 epochs. We selected the Epoch 67 checkpoint because it had the lowest validation loss.
 
 | Metric | Reproduced result |
 |---|---:|
@@ -44,13 +44,13 @@ The model was trained for 75 epochs. The checkpoint with the lowest validation l
 | ROC-AUC | 0.9919 |
 | Average precision | 0.9926 |
 
-The test set produced 117 false negatives and 85 false positives. The base paper reports 97.95% accuracy. The reproduction is 1.61 percentage points lower.
+The model made 117 false-negative errors and 85 false-positive errors on the test set. The base paper reports 97.95% accuracy. Our result is 1.61 percentage points lower.
 
 ## Motivation for the Proposed Change
 
-Blood-smear images can differ in brightness, contrast, stain intensity, and colour. The current training pipeline uses geometric augmentation but does not add colour variation.
+Blood-smear images can differ in brightness, contrast, stain strength, and colour. The current training steps rotate and flip images, but they do not add colour changes.
 
-The proposed change is mild ColorJitter augmentation during training. This change may help the model learn features that remain useful when staining and illumination vary.
+We propose adding mild ColorJitter during training. It may help the model learn useful features when stain strength and microscope lighting change.
 
 ## References
 
