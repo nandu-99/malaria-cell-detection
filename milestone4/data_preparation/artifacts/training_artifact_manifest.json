@@ -1,0 +1,37 @@
+[
+  {
+    "filename": "danet_colorjitter_config_final.json",
+    "size_bytes": 2316,
+    "sha256": "24264b752917558ec10d025d090e0d3e74a74ce5963fc41a8ea7857037264f17"
+  },
+  {
+    "filename": "danet_colorjitter_history.csv",
+    "size_bytes": 9632,
+    "sha256": "bd90d81c5b84ea49242c8373aa170e3d844fe703232fc8317372099f13aa4d85"
+  },
+  {
+    "filename": "training_environment.json",
+    "size_bytes": 276,
+    "sha256": "3a2d7fbf83555c6b0d3aa2e42831b95a228b7ba69653a7a9c78657dae89b17ee"
+  },
+  {
+    "filename": "danet_colorjitter_training_summary.md",
+    "size_bytes": 2101,
+    "sha256": "23918efdc22c6612c0e72a2b0252f8c3fbb016bac2be644e2cee693a624de207"
+  },
+  {
+    "filename": "figures/training_validation_loss.png",
+    "size_bytes": 116150,
+    "sha256": "8b817f8b6639f0d1f4f5cfb4199318435155a5200da204f0edb4a52bce21b738"
+  },
+  {
+    "filename": "figures/training_validation_accuracy.png",
+    "size_bytes": 114499,
+    "sha256": "249fd28fc790cf5cff18f482e174442f9741acf69fa06cafc153131eaa812fda"
+  },
+  {
+    "filename": "figures/learning_rate_schedule.png",
+    "size_bytes": 107182,
+    "sha256": "3c1e4cc2d0c9f05bfa7c4f39546ec73011e00868e2f1c4b32a0a2b408e5e949e"
+  }
+]
