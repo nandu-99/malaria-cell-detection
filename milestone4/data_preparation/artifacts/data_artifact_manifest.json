@@ -1,0 +1,27 @@
+[
+  {
+    "filename": "data_config.json",
+    "size_bytes": 1632,
+    "sha256": "b3ff62fedd3b582dce272a4034dfbdfec77c902996021cabf8fbadd07bb0668c"
+  },
+  {
+    "filename": "split_manifest.csv",
+    "size_bytes": 5747265,
+    "sha256": "aea08bdec4626ae188204039369aafe14b3a9ac9ce0782077458d9428f26091d"
+  },
+  {
+    "filename": "figures/colorjitter_comparison.png",
+    "size_bytes": 720294,
+    "sha256": "d721a1fc45b3c039c219c6af37c2bb5c6936bc2799a6890d404a3f18f91fe90e"
+  },
+  {
+    "filename": "environment.json",
+    "size_bytes": 207,
+    "sha256": "c9ad9b4e0fc4647aa5580a90b1e2c5977fffe577a86f3cc55d0882e518b6c627"
+  },
+  {
+    "filename": "data_preparation_summary.md",
+    "size_bytes": 1192,
+    "sha256": "f483e3942a81dcf50578e4d993d607b3c60e588aa5b83b6dbc09175ca1076c47"
+  }
+]
