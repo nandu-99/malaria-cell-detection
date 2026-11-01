@@ -1,0 +1,12 @@
+{
+  "success_checks": {
+    "Recall increases by at least 0.3 percentage points": true,
+    "F1-score does not decrease": true,
+    "Accuracy decreases by no more than 0.5 percentage points": true
+  },
+  "all_success_criteria_met": true,
+  "recall_change_percentage_points": 1.1248185776487674,
+  "f1_change_percentage_points": 0.5129672889465309,
+  "accuracy_change_percentage_points": 0.4898403483309055,
+  "comparison_limitation": "The baseline switched to full precision after epoch 24; this experiment switched after epoch 22 due to non-finite loss. Training schedules therefore differ, so performance differences cannot be attributed solely to ColorJitter."
+}

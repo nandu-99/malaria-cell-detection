@@ -1,8 +1,9 @@
 # Milestone 4
 
 Milestone 4 implements and evaluates the mild ColorJitter experiment proposed
-in Milestone 3. Data preparation and the 75-epoch modified-model training run
-are complete. Final test evaluation and the baseline comparison are pending.
+in Milestone 3. Data preparation, the 75-epoch modified-model training run,
+and final test evaluation with the baseline comparison are complete. The
+comparison includes a training-schedule difference, documented below.
 
 ## Data preparation — Manasa
 
@@ -63,7 +64,52 @@ training; setup and artifact cells require the original Drive files.
 All seven exported training artifacts, including the loss curve, match the
 sizes and SHA-256 checksums recorded in the training artifact manifest.
 
-## Experiment protocol and evaluation handoff
+## Evaluation and comparison — Vivekananda
+
+- [Executed evaluation notebook](model_evaluation/malaria_m4_evaluation_ablation.ipynb)
+- [Test metrics](model_evaluation/artifacts/test_metrics.json)
+- [Test predictions](model_evaluation/artifacts/test_predictions.csv)
+- [Baseline comparison](model_evaluation/artifacts/baseline_colorjitter_comparison.csv)
+- [M3 success criteria](model_evaluation/artifacts/hypothesis_assessment.json)
+- [M3 prediction comparison](model_evaluation/artifacts/m3_prediction_comparison.csv)
+- [Paired outcomes](model_evaluation/artifacts/paired_prediction_outcomes.csv)
+- [Evaluation summary](model_evaluation/artifacts/evaluation_ablation_summary.md)
+- [Evaluation settings](model_evaluation/artifacts/evaluation_config.json)
+- [Artifact checksums](model_evaluation/artifacts/evaluation_artifact_manifest.json)
+- [Comparison figures and examples](model_evaluation/artifacts/figures/)
+
+| Metric | M2 baseline | M4 modified run |
+|---|---:|---:|
+| Test accuracy | 96.34% | 96.83% |
+| Precision | 96.88% | 96.77% |
+| Recall | 95.75% | 96.88% |
+| Specificity | 96.92% | 96.77% |
+| F1-score | 96.31% | 96.83% |
+| ROC-AUC | 0.991887 | 0.994025 |
+| False negatives | 117 | 86 |
+| False positives | 85 | 89 |
+
+All three operational M3 success criteria were met. Recall exceeded its
+predicted range. The modified model corrected 79 baseline errors and introduced
+52 errors on images the baseline classified correctly, reducing total errors
+from 202 to 175. This is one seed on one fixed split; no explicit lighting or
+stain-shift robustness experiment was performed.
+
+The evaluation notebook has 39 executed code cells without saved errors. Its
+code, outputs, figures, execution counts, and metadata are preserved; only a
+title and section headings were added and the final empty cell removed.
+All 16 evaluation artifact sizes and checksums were verified. Reported
+classification metrics, ROC-AUC, average precision, and the confusion matrix
+were independently recomputed from saved predictions. Baseline input hashes
+match the M2 repository artifacts, and test paths and labels match the shared
+manifest.
+
+The missing uploaded `prediction_examples.csv` was recovered using the saved
+prediction rows and sampling seed 42. Its bytes match the original manifest
+checksum. Evaluation artifacts are stored under `model_evaluation/artifacts/`,
+with images in `artifacts/figures/`, matching the other milestone components.
+
+## Experiment protocol and interpretation
 
 Use the M4 configuration and unchanged split manifest. Reconstruct the training
 transform with the recorded ColorJitter parameters and use evaluation
@@ -76,5 +122,8 @@ patient overlap; this experiment does not establish clinical validity.
 
 M2 switched to full precision after epoch 24, whereas M4 switched after epoch
 22. This difference limits attribution of performance changes solely to
-ColorJitter. Evaluate the selected epoch 62 checkpoint on the fixed test split
-in the evaluation notebook; the training notebook reports validation results.
+ColorJitter. The selected epoch 62 checkpoint was evaluated on the fixed test
+split; the training notebook separately reports validation results. The
+comparison meets the recorded success criteria but does not isolate the
+augmentation effect from the schedule difference. Milestone 5 failure
+analysis, final IEEE-format paper, and defence remain separate work.

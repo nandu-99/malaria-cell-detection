@@ -129,6 +129,12 @@ and limitations before implementing the change.
 | Base-paper revision after evaluator feedback | Documented |
 | Milestone 2: dataset preparation, model training, and evaluation | Completed |
 | Milestone 3: hypothesis, prediction, and introduction | Completed |
+| Milestone 4: ColorJitter implementation and baseline comparison | Completed; training-schedule difference documented |
+
+The [Milestone 4 comparison](milestone4/README.md) reports 96.83% test accuracy,
+96.88% recall, and 96.83% F1-score, meeting the three M3 success criteria.
+The recovery schedules differ between the baseline and modified runs, so
+these changes cannot be attributed solely to ColorJitter.
 
 ## Contribution workflow
 

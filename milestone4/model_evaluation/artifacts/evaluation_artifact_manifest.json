@@ -1,0 +1,82 @@
+[
+  {
+    "filename": "test_predictions.csv",
+    "size_bytes": 1441478,
+    "sha256": "cede5aac605fc8b4c0efdd8cde1ad3c703ba55c23848202f7990d18dd81a6a97"
+  },
+  {
+    "filename": "test_metrics.json",
+    "size_bytes": 406,
+    "sha256": "f66212214e6213107d2f8f916795dd354cc3d2c9ba994b13d6ea5254dbedfb0e"
+  },
+  {
+    "filename": "test_classification_report.csv",
+    "size_bytes": 437,
+    "sha256": "21a4a9bfc55adb249ae83df5037df8e5e574b25a64e38e480e553932d4d663a7"
+  },
+  {
+    "filename": "baseline_colorjitter_comparison.csv",
+    "size_bytes": 654,
+    "sha256": "6d686a12c92c0940cadceb67b00463ef304fbd2c6e8cb5d5b13330423ba0d2bb"
+  },
+  {
+    "filename": "hypothesis_assessment.json",
+    "size_bytes": 665,
+    "sha256": "376882ed3067dc66b74c1c00c412e64162c5206d7a88c2a63c65d68dc386f463"
+  },
+  {
+    "filename": "m3_prediction_comparison.csv",
+    "size_bytes": 296,
+    "sha256": "adb1b54eb7a8566d991b8a76700d75b7d19e2b0ca6ab0ec3ee72bc8e86e9e37c"
+  },
+  {
+    "filename": "paired_prediction_outcomes.csv",
+    "size_bytes": 130,
+    "sha256": "f46172862b8c5be2914c737997758c45e57d17cf380c2c9793a35b2c88df4afb"
+  },
+  {
+    "filename": "prediction_examples.csv",
+    "size_bytes": 3551,
+    "sha256": "a5419bf7c78f104b79c2b9bfd11210132545c648abf7bd0dce0375f273dea4c2"
+  },
+  {
+    "filename": "evaluation_config.json",
+    "size_bytes": 1694,
+    "sha256": "7520ccdb54fb366975028b146ea28feb5390f9061d66b2e5ca8ad8a4255dcc88"
+  },
+  {
+    "filename": "evaluation_environment.json",
+    "size_bytes": 260,
+    "sha256": "5d6151f61f962131872e60a1edadc43e6da9e2aa9a16fbd78392ac5c09b49ce2"
+  },
+  {
+    "filename": "evaluation_ablation_summary.md",
+    "size_bytes": 2599,
+    "sha256": "09ffd620b3dcd82d384597e1c2132e47f5365238078539c9018d4eac58754ccf"
+  },
+  {
+    "filename": "figures/confusion_matrix_comparison.png",
+    "size_bytes": 68621,
+    "sha256": "769c20f668029621f67922fd3f327320e4af04119cc7fab581e197a16ad0080e"
+  },
+  {
+    "filename": "figures/roc_curve_comparison.png",
+    "size_bytes": 92798,
+    "sha256": "2407abf64f2096c17996c24b2ac503416d0cef2dc4789773976eb8031169b2e3"
+  },
+  {
+    "filename": "figures/precision_recall_comparison.png",
+    "size_bytes": 73082,
+    "sha256": "773b55ea1db73ad33ed6da1ac5d06a279df3b0a1ad3ae45ecc7672912a3ad9a9"
+  },
+  {
+    "filename": "figures/metric_comparison.png",
+    "size_bytes": 63166,
+    "sha256": "3c15e7d16fa8479aececf8337df6f2a127fd4486a13f60b1203363068855e964"
+  },
+  {
+    "filename": "figures/prediction_examples.png",
+    "size_bytes": 526608,
+    "sha256": "488932ae2ca47b60ec575772fe6dc9db156bf9a08426f523b59c0e5013fc5a3e"
+  }
+]
