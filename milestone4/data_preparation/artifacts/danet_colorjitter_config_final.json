@@ -1,0 +1,76 @@
+{
+  "experiment": "DANet-S with mild ColorJitter",
+  "model": "DANet-S",
+  "num_classes": 2,
+  "class_mapping": {
+    "Uninfected": 0,
+    "Parasitized": 1
+  },
+  "input_size": [
+    224,
+    224
+  ],
+  "batch_size": 64,
+  "data_loader_workers": 0,
+  "seed": 42,
+  "total_epochs": 75,
+  "optimizer": "RMSprop",
+  "loss": "NLLLoss",
+  "scheduler": "OneCycleLR",
+  "training_phases": [
+    {
+      "epochs": "1-22",
+      "maximum_learning_rate": 0.001,
+      "mixed_precision": true
+    },
+    {
+      "epochs": "23-75",
+      "maximum_learning_rate": 0.0005,
+      "mixed_precision": false,
+      "restart_from_epoch": 22
+    }
+  ],
+  "phase_1_scheduler_epochs": 75,
+  "phase_2_scheduler_epochs": 53,
+  "phase_2_optimizer_reinitialized": true,
+  "training_augmentation": {
+    "rotation_degrees": 15,
+    "horizontal_flip_probability": 0.2,
+    "vertical_flip_probability": 0.2,
+    "color_jitter": {
+      "brightness": 0.2,
+      "contrast": 0.2,
+      "saturation": 0.1,
+      "hue": 0.02
+    }
+  },
+  "split_manifest_sha256": "aea08bdec4626ae188204039369aafe14b3a9ac9ce0782077458d9428f26091d",
+  "initialization": "from scratch",
+  "checkpoint_criterion": "lowest validation loss",
+  "test_set_evaluated": false,
+  "planned_training_phases": [
+    {
+      "epochs": "1-24",
+      "maximum_learning_rate": 0.001,
+      "mixed_precision": true
+    },
+    {
+      "epochs": "25-75",
+      "maximum_learning_rate": 0.0005,
+      "mixed_precision": false,
+      "restart_from_epoch": 24
+    }
+  ],
+  "recovery_reason": "Non-finite training loss during epoch 23; discarded the incomplete epoch and restored epoch 22.",
+  "completed_epochs": 75,
+  "trainable_parameters": 2310842,
+  "selected_epoch": 62,
+  "selected_validation_loss": 0.08110992054879755,
+  "selected_validation_accuracy": 0.9720609579100146,
+  "model_file": "danet_s_colorjitter_best.pth",
+  "model_size_bytes": 9332471,
+  "model_sha256": "ee7bc1fd413439343fda5a3b8dddad5f0a6bdbe98981488da2c1eb56775f30b3",
+  "retained_training_minutes": 287.5081936505167,
+  "runtime_resume_after_epoch": 68,
+  "comparison_limitation": "The baseline switched to full precision after epoch 24; this experiment switched after epoch 22 due to non-finite loss. Training schedules therefore differ, so performance differences cannot be attributed solely to ColorJitter."
+}
