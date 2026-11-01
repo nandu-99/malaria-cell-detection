@@ -1,0 +1,13 @@
+{
+  "python": "3.13.16",
+  "pytorch": "2.11.0+cu130",
+  "torchvision": "0.26.0+cu130",
+  "numpy": "2.1.3",
+  "pandas": "2.2.3",
+  "pillow": "11.3.0",
+  "scikit_learn": "1.6.1",
+  "matplotlib": "3.10.0",
+  "cuda": "13.0",
+  "cudnn": 92700,
+  "gpu": "Tesla T4"
+}

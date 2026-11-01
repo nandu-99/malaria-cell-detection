@@ -1,0 +1,38 @@
+{
+  "model": "DANet-S with ColorJitter",
+  "checkpoint_file": "danet_s_colorjitter_best.pth",
+  "checkpoint_epoch": 62,
+  "checkpoint_sha256": "ee7bc1fd413439343fda5a3b8dddad5f0a6bdbe98981488da2c1eb56775f30b3",
+  "split_manifest_sha256": "aea08bdec4626ae188204039369aafe14b3a9ac9ce0782077458d9428f26091d",
+  "test_samples": 5512,
+  "class_mapping": {
+    "Uninfected": 0,
+    "Parasitized": 1
+  },
+  "input_size": [
+    224,
+    224
+  ],
+  "batch_size": 64,
+  "data_loader_workers": 0,
+  "shuffle": false,
+  "test_transform": [
+    "Resize((224, 224))",
+    "ToTensor()"
+  ],
+  "precision": "float32",
+  "mixed_precision": false,
+  "prediction_rule": "argmax of two class log probabilities",
+  "positive_class": "Parasitized",
+  "positive_label": 1,
+  "loss": "NLLLoss with sum reduction, divided by test samples",
+  "device": "cuda",
+  "random_seed": 42,
+  "baseline_checkpoint_epoch": 67,
+  "baseline_checkpoint_sha256": "d08ff52e3c0682fadf0b23b631b916305405e1c9693e2f581dec26b5ba4f0aa1",
+  "baseline_metrics_sha256": "96071cc7cdd3458ecfa1a6f4e0769b9d2a249a9b47eef756b66b1319e039aea0",
+  "baseline_predictions_sha256": "6549e7538c78bfb2537dad295eb01dfa9e965cea48e5479bc35280c20efba07c",
+  "baseline_config_sha256": "8ad939980baf6041f5ad4d513fc58aca036f75c42f5d88a9cc37c73770c70045",
+  "comparison_limitation": "The baseline switched to full precision after epoch 24; this experiment switched after epoch 22 due to non-finite loss. Training schedules therefore differ, so performance differences cannot be attributed solely to ColorJitter.",
+  "patient_overlap_note": "All 201 mapped patient identifiers occur in train, validation, and test because the base paper uses an image-level split."
+}

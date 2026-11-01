@@ -1,0 +1,5 @@
+outcome,images
+Both correct,5258
+"Baseline wrong, ColorJitter correct",79
+"Baseline correct, ColorJitter wrong",52
+Both wrong,123

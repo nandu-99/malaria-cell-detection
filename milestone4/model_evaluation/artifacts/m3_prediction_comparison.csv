@@ -1,0 +1,5 @@
+metric,predicted_minimum,predicted_maximum,actual,outcome
+Accuracy (%),96.54,97.14,96.82510885341074,Within prediction
+Recall (%),96.05,96.75,96.87953555878084,Above predicted range
+F1-score (%),96.51,97.11,96.82683590208522,Within prediction
+ROC-AUC,0.9919,,0.9940249114743186,Within prediction
