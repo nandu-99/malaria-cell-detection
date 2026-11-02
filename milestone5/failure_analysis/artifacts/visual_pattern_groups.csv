@@ -1,0 +1,5 @@
+pattern,review_ids,interpretation
+Localized purple spots or edge regions,"G1-U1, G1-U2, G1-U3, G1-P3, G2-U3, G2-P1, G2-P3, G3-U1, G3-U2, G3-U3","Present in corrected, new, and shared errors; not sufficient to explain prediction differences."
+Diffuse or uneven colour variation,"G1-P1, G1-P2, G2-U1, G2-U2, G2-P2, G3-U3, G3-P2, G3-P3",Observed across outcome groups; stain robustness was not directly tested.
+Irregular or notched outlines,"G1-P1, G1-P2, G2-U1, G2-U2, G2-P3, G3-P1",Visible shape variation; its influence on predictions requires a separate controlled analysis.
+Less apparent internal features at displayed scale,"G3-P1, G3-P2, G3-P3",Observed in sampled shared false negatives; does not establish absence of parasites or label errors.

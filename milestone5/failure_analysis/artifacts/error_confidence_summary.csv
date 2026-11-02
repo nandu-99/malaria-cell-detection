@@ -1,0 +1,5 @@
+model,error_type,total_errors,median_predicted_probability,errors_with_score_at_least_0.90
+baseline,False positive,85,0.8302586674690247,34
+baseline,False negative,117,0.8350299447774887,46
+modified,False positive,89,0.7717394,23
+modified,False negative,86,0.83342378,36
