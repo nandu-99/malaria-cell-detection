@@ -1,0 +1,22 @@
+{
+  "milestone": 5,
+  "issue": 22,
+  "analysis": "Paired prediction failure analysis",
+  "seed": 42,
+  "test_images": 5512,
+  "baseline_predictions_sha256": "6549e7538c78bfb2537dad295eb01dfa9e965cea48e5479bc35280c20efba07c",
+  "modified_predictions_sha256": "cede5aac605fc8b4c0efdd8cde1ad3c703ba55c23848202f7990d18dd81a6a97",
+  "split_manifest_sha256": "aea08bdec4626ae188204039369aafe14b3a9ac9ce0782077458d9428f26091d",
+  "test_image_hash_mismatches": 0,
+  "visual_sampling": {
+    "method": "Random sampling within paired-outcome and true-class groups",
+    "images_per_group_per_class": 3,
+    "total_reviewed_images": 18,
+    "seed": 42
+  },
+  "high_score_threshold": 0.9,
+  "high_score_interpretation": "Descriptive predicted-class probability; not calibrated certainty.",
+  "visual_review_scope": "Observations from 18 sampled images at displayed scale. Groups overlap and do not estimate prevalence or establish causes.",
+  "model_inference_performed": false,
+  "model_retraining_performed": false
+}

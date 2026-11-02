@@ -1,0 +1,72 @@
+[
+  {
+    "filename": "paired_predictions.csv",
+    "size_bytes": 1728131,
+    "sha256": "b2c8dfac22ac883476f3b5effbae94b8f4173e6353eac7b2b0ac2ea335bc050a"
+  },
+  {
+    "filename": "outcome_counts.csv",
+    "size_bytes": 136,
+    "sha256": "45a3aed8077bd18c3e35948da476c0ec6a9c772a490e0a4ad191dbd51e63807a"
+  },
+  {
+    "filename": "paired_errors_by_class.csv",
+    "size_bytes": 133,
+    "sha256": "c70f3e98d0e1db2cff6cf4fecabb6b6d05cff6f531ef61e0cd6dc1e901d27a0a"
+  },
+  {
+    "filename": "visual_review_examples.csv",
+    "size_bytes": 7953,
+    "sha256": "e2bf7d9a1db1ba8733fb5b7f22513ba8cb6c4352332237cf10343d9bfb17ffd9"
+  },
+  {
+    "filename": "visual_pattern_groups.csv",
+    "size_bytes": 750,
+    "sha256": "60d74221c7607efe8ba02c398d1f35a9ab8d5aa5adbcf8dd4b60b9bdd79b24a4"
+  },
+  {
+    "filename": "error_confidence_summary.csv",
+    "size_bytes": 271,
+    "sha256": "44246fa2df8b2f2d2a5b9e828fa9c0c3567d2411570978354fa2837001e5858c"
+  },
+  {
+    "filename": "failure_analysis_config.json",
+    "size_bytes": 1006,
+    "sha256": "bb1b889c4b53e7c280c241e242d5173743c41fd9596a66e87f9446905c2d9f6b"
+  },
+  {
+    "filename": "analysis_environment.json",
+    "size_bytes": 139,
+    "sha256": "3c7cc6b57f9fb746f73b79a1f4f2f4ccbe655594af7e7ab1ef327a0531f735f5"
+  },
+  {
+    "filename": "failure_analysis.md",
+    "size_bytes": 3161,
+    "sha256": "fcd46aaac3607c0db9bb987ec0d53e5594c6cefaa7d9bcc68844fb9f2f055f4b"
+  },
+  {
+    "filename": "figures/paired_errors_by_class.png",
+    "size_bytes": 68536,
+    "sha256": "372408e0cfbcb3cd5d428e9c03cca4835ee2b114882454540cd5453126fff095"
+  },
+  {
+    "filename": "figures/shared_error_examples.png",
+    "size_bytes": 236803,
+    "sha256": "6e96f5cd70300c9786cd6cc7f1b8a2ef6abb50bd9125e6343001f8559c2f1eae"
+  },
+  {
+    "filename": "figures/corrected_error_examples.png",
+    "size_bytes": 216936,
+    "sha256": "d2eb5ebf32964b217d0ba5331faf68e2088178d870e25f725f685ecee2f4b129"
+  },
+  {
+    "filename": "figures/new_error_examples.png",
+    "size_bytes": 235096,
+    "sha256": "697ef399f876d108fbad0848ed7d31af3155646d325abf0350da992186f85ba4"
+  },
+  {
+    "filename": "figures/error_probability_distributions.png",
+    "size_bytes": 94405,
+    "sha256": "9cb43b079f8ac18fd5d079aa645499bdfc17ee5bb975a7442be8fadaa91cbb1a"
+  }
+]

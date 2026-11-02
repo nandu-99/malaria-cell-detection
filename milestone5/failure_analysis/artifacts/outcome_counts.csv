@@ -1,0 +1,5 @@
+outcome,baseline,modified,change
+True negative,2671,2667,-4
+True positive,2639,2670,31
+False positive,85,89,4
+False negative,117,86,-31

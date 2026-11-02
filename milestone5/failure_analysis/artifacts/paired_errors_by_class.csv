@@ -1,0 +1,4 @@
+paired_outcome,Uninfected,Parasitized,total
+Corrected baseline error,27,52,79
+New modified-model error,31,21,52
+Both wrong,58,65,123
