@@ -2,8 +2,25 @@
 
 Milestone 5 combines failure analysis, the final IEEE-format paper, and the
 defence. The failure-analysis files are prepared for review under issue #22.
-Methods and reproducibility documentation (#23), the assembled paper, and
-the defence materials (#24) remain pending.
+The methods and reproducibility section is also prepared for review under issue
+#23. The assembled IEEE paper and final defence materials (#24) remain pending.
+
+## Methods and reproducibility — Shanker (#23)
+
+- [Methods and reproducibility](methods_and_reproducibility.md)
+
+This document explains the model, data pipeline, proposed change, training,
+recovery, and evaluation in simple English. It is source material for the
+methods section of the final IEEE paper, not a replacement for the paper.
+
+## Evaluation deliverables
+
+The stated M5 requirements are failure analysis, an IEEE-format paper, and
+the defence. The final paper and presentation will use the methods section,
+failure-analysis write-up, tables, and figures. The notebook, prediction CSVs,
+configuration, environment record, and checksum manifest provide supporting
+evidence in the repository; they are not additional standalone submission
+requirements in the milestone list. Defence rehearsal notes are omitted.
 
 ## Failure analysis — Manasa (#22)
 
