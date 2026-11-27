@@ -1,160 +1,171 @@
 # Malaria Cell Detection
 
-This project uses computer vision to classify segmented red blood cells as
-parasitized or uninfected. It uses the public NIH/NLM Malaria Cell Images
-dataset.
+Malaria cell classification using DANet-S and mild colour augmentation. The
+project reproduces a published baseline, evaluates training-only ColorJitter,
+and analyses how individual prediction errors change.
 
-## Team
+Each input is a cropped red blood cell image labelled **Uninfected (0)** or
+**Parasitized (1)**. The task is binary image classification; it does not cover
+whole-slide detection or patient diagnosis.
 
-| Member | Responsibility |
-|---|---|
-| Manasa | Dataset preparation and PyTorch data pipeline |
-| Shanker | DANet model implementation and training |
-| Vivekananda | Repository structure, base-paper revision, final evaluation, and documentation |
+## Project overview
 
-## Base paper
+The baseline is DANet-S with LogSoftMax from the DANet paper by Ali et al.
+The experiment adds small random changes to brightness, contrast, saturation,
+and hue during training. Both runs use the same network architecture, saved
+data split, class labels, and test preprocessing.
 
-The original Milestone 1 submission selected Rajaraman et al. (2018) with a
-ResNet50 baseline. After evaluator feedback, the team changed the base paper
-to:
+The modified run achieves **96.83% test accuracy** and **96.88% recall**. It
+misses 31 fewer infected cells than the baseline, while flagging four additional
+uninfected cells. Recovery changed the training schedules, so the comparison
+does not isolate the effect of ColorJitter.
 
-> A. Ali et al., "DANet: A lightweight dilated attention network for malaria
-> parasite detection," *Scientific Reports*, vol. 15, 36689, 2025.
+## Report and experiment records
 
-- Paper: <https://doi.org/10.1038/s41598-025-20402-1>
-- Official implementation: <https://github.com/asfakali/DANet>
-- Selected baseline: DANet-S with LogSoftMax
+- [Final IEEE-format paper](milestone5/paper/malaria_danet_colorjitter_ieee.pdf)
+- [Baseline reproduction](milestone2/README.md)
+- [Recorded hypothesis and experiment plan](milestone3/03_prediction_and_experiment_plan.md)
+- [ColorJitter experiment and comparison](milestone4/README.md)
+- [Methods and reproducibility](milestone5/methods_and_reproducibility.md)
+- [Failure analysis and final report](milestone5/README.md)
 
-The reason for this change is recorded in
-[Base Paper Revision After Milestone 1](docs/base_paper_revision_after_m1.md).
+## Results
 
-## Dataset
+Both selected models were evaluated on the same 5,512 test images. Checkpoint
+selection used the lowest validation loss: epoch 67 for the baseline and
+epoch 62 for the modified run.
 
-The project uses the public NIH/NLM Malaria Cell Images dataset:
+| Metric | Baseline | ColorJitter run | Change |
+|---|---:|---:|---:|
+| Accuracy | 96.34% | 96.83% | +0.49 pp |
+| Precision | 96.88% | 96.77% | −0.11 pp |
+| Recall / sensitivity | 95.75% | 96.88% | +1.12 pp |
+| Specificity | 96.92% | 96.77% | −0.15 pp |
+| F1-score | 96.31% | 96.83% | +0.51 pp |
+| ROC-AUC | 0.9919 | 0.9940 | +0.0021 |
+| Average precision | 0.9926 | 0.9946 | +0.0020 |
+| Test loss | 0.110878 | 0.093517 | −0.017361 |
+| False negatives | 117 | 86 | −31 |
+| False positives | 85 | 89 | +4 |
 
-- 27,558 segmented RGB cell images
-- 13,779 parasitized images
-- 13,779 uninfected images
-- Binary classification task
+Here, pp means percentage points. Parasitized is the positive class.
 
-Dataset page: <https://lhncbc.nlm.nih.gov/LHC-research/LHC-projects/image-processing/malaria-datasheet.html>
+![Baseline and ColorJitter confusion matrices](milestone4/model_evaluation/artifacts/figures/confusion_matrix_comparison.png)
 
-The dataset is downloaded separately and is not stored in this repository.
+Total errors fell from 202 to 175. Comparing individual images, the modified
+run corrected 79 baseline errors, introduced 52 new errors, and shared 123
+errors with the baseline. All three success criteria recorded before
+implementation were met. See the [evaluation summary](milestone4/model_evaluation/artifacts/evaluation_ablation_summary.md)
+for the prediction assessment and interpretation.
+
+The base paper reports 97.95% accuracy for DANet-S with LogSoftMax. Our
+reproduced baseline is 1.61 percentage points below that reference; this
+project uses one fixed split rather than repeating the paper's full
+cross-validation study.
+
+## Dataset and preprocessing
+
+The public NIH/NLM Malaria Cell Images dataset contains 27,558 RGB images,
+with 13,779 images in each class.
+
+| Partition | Images | Use |
+|---|---:|---|
+| Training | 19,290 | Learn model parameters |
+| Validation | 2,756 | Select the checkpoint |
+| Test | 5,512 | Evaluate the selected models |
+
+Both runs preserve the saved stratified image-level split with seed 42.
+Images are resized to 224 × 224 pixels and scaled to 0–1. Baseline training
+uses rotation within 15 degrees and horizontal and vertical flips, each with
+probability 0.2.
+
+The modified pipeline adds ColorJitter with brightness 0.2, contrast 0.2,
+saturation 0.1, and hue 0.02. Validation and test images use only resizing
+and tensor conversion.
+
+The dataset must be downloaded separately and is not included in Git.
+[NIH/NLM dataset page](https://lhncbc.nlm.nih.gov/LHC-research/LHC-projects/image-processing/malaria-datasheet.html).
 
 ## Repository structure
 
-```text
-malaria-cell-detection/
-|-- README.md
-|-- CONTRIBUTING.md
-|-- CONTRIBUTIONS.md
-|-- docs/
-|   `-- base_paper_revision_after_m1.md
-|-- milestone1/
-|   |-- milestone1.pdf
-|   `-- malaria_literature_review.pdf
-|-- milestone2/
-|   |-- README.md
-|   |-- data_preparation/
-|   |   |-- malaria_data_preparation_pipeline.ipynb
-|   |   `-- artifacts/
-|   |-- model_training/
-|   |   |-- malaria_danet_training_evaluator_ready.ipynb
-|   |   `-- artifacts/
-|   `-- model_evaluation/
-|       |-- malaria_danet_final_evaluation_evaluator_ready.ipynb
-|       `-- artifacts/
-|-- milestone3/
-|   |-- 01_introduction_and_baseline.md
-|   |-- 02_proposed_change_and_hypothesis.md
-|   |-- 03_prediction_and_experiment_plan.md
-|   `-- milestone3_hypothesis_prediction_introduction.pdf
-`-- src/
-    |-- README.md
-    `-- danet.py
-```
+The milestone folders retain the stages in which the work was developed.
 
-The Milestone 2 directory separates data preparation, model training, and
-final evaluation. Each part contains a clear notebook and its saved files.
-
-## Reproduced results
-
-The selected Epoch 67 checkpoint was evaluated once on the reserved test split
-of 5,512 images.
-
-| Metric | Result |
-|---|---:|
-| Test loss | 0.110878 |
-| Accuracy | 96.34% |
-| Precision | 96.88% |
-| Recall or sensitivity | 95.75% |
-| Specificity | 96.92% |
-| F1-score | 96.31% |
-| ROC-AUC | 0.9919 |
-| Average precision | 0.9926 |
-
-The base paper reports 97.95% accuracy for DANet-S with LogSoftMax. Our result
-is 1.61 percentage points lower. Detailed results, figures, error analysis,
-and the comparison table are available in
-[Milestone 2 model evaluation](milestone2/model_evaluation/).
-
-The selected model checkpoint is stored externally because model checkpoints
-are excluded from the repository. Its SHA-256 checksum is recorded in the
-evaluation configuration and training summary.
-
-## Milestone 3 hypothesis and prediction
-
-Milestone 3 proposes one change to the baseline training pipeline: mild
-ColorJitter. We expect it to help the model handle small changes in brightness,
-contrast, saturation, and hue. The model and training settings will stay the
-same.
-
-We recorded the hypothesis, predicted values, experiment plan, success rules,
-and limitations before implementing the change.
-
-### Required evaluation submission
-
-1. **Notebook with reproduced results:**
-   [DANet-S final evaluation notebook](milestone2/model_evaluation/malaria_danet_final_evaluation_evaluator_ready.ipynb)
-2. **Presentation with the brief introduction and hypothesis:**
-   The presentation will be submitted separately and is not stored in this repository.
-3. **Academic report with the full introduction:**
-   [Milestone 3 report](milestone3/milestone3_hypothesis_prediction_introduction.pdf)
-
-## Milestone status
-
-| Milestone | Status |
+| Directory | Contents |
 |---|---|
-| Milestone 1: literature review and initial paper selection | Completed |
-| Base-paper revision after evaluator feedback | Documented |
-| Milestone 2: dataset preparation, model training, and evaluation | Completed |
-| Milestone 3: hypothesis, prediction, and introduction | Completed |
-| Milestone 4: ColorJitter implementation and baseline comparison | Completed; training-schedule difference documented |
+| [milestone1/](milestone1/) | Literature review and initial paper selection |
+| [milestone2/](milestone2/) | Baseline data preparation, training, evaluation, and saved artifacts |
+| [milestone3/](milestone3/) | Introduction, hypothesis, numerical predictions, and experiment plan |
+| [milestone4/](milestone4/) | ColorJitter pipeline, modified-model training, and comparison |
+| [milestone5/](milestone5/) | Methods, prediction failure analysis, and final IEEE paper |
+| [src/](src/) | Reusable PyTorch DANet-S model |
+| [docs/](docs/) | Background on the base-paper revision |
 
-The [Milestone 4 comparison](milestone4/README.md) reports 96.83% test accuracy,
-96.88% recall, and 96.83% F1-score, meeting the three M3 success criteria.
-The recovery schedules differ between the baseline and modified runs, so
-these changes cannot be attributed solely to ColorJitter.
+Notebook outputs are included for review. Supporting configurations, histories,
+predictions, summaries, and figures are stored in each component's `artifacts/`
+directory.
 
-## Contribution workflow
+## Reviewing and running the work
 
-All contributors must work from an issue, use the branch naming convention,
-write meaningful commit messages, and request review before integration. See
-[CONTRIBUTING.md](CONTRIBUTING.md) for the complete conventions.
+To review the findings, start with the IEEE paper and the saved evaluation
+and failure-analysis outputs. Reviewing these files does not require training
+a model.
 
-## Project constraints
+To work through the experiments in Google Colab:
 
-- Do not commit the image dataset or dataset archives.
-- Do not commit credentials, access tokens, or environment files.
-- Do not commit large model checkpoints directly.
-- Report sensitivity or recall and AUC in addition to accuracy.
-- Clearly document patient overlap and other evaluation limitations.
-- Do not make clinical claims from the experimental results.
+1. Start with [baseline data preparation](milestone2/data_preparation/malaria_data_preparation_pipeline.ipynb),
+   [training](milestone2/model_training/malaria_danet_training_evaluator_ready.ipynb),
+   and [evaluation](milestone2/model_evaluation/malaria_danet_final_evaluation_evaluator_ready.ipynb).
+2. Follow the modified experiment's [data preparation](milestone4/data_preparation/malaria_m4_data_preparation.ipynb),
+   [training](milestone4/model_training/malaria_m4_danet_training.ipynb),
+   and [evaluation](milestone4/model_evaluation/malaria_m4_evaluation_ablation.ipynb).
+3. Use the saved predictions in the [failure-analysis notebook](milestone5/failure_analysis/malaria_m5_failure_analysis.ipynb).
+   This analysis requires no model inference or retraining.
 
-## Evaluation limitation
+The notebooks use Google Drive under `MyDrive/malaria_danet/` for persistent
+files and `/content/malaria_data/` for extracted images. Adjust paths to your
+Drive layout and provide the required inputs before running. Training uses a
+GPU. Software versions are recorded in the saved environment files.
 
-The project follows the base paper's stratified image-level split. Images from
-the same mapped patient may occur across training, validation, and test sets.
-This overlap can make the reported image-level performance more optimistic than
-a patient-independent evaluation. The results are experimental and do not
-establish clinical validity.
+Model checkpoints remain outside the repository. Their filenames and SHA-256
+checksums are recorded in the training and evaluation configurations. Evaluating
+the models again requires those checkpoints; saved predictions support review
+of the reported metrics without them.
+
+The M4 training notebook includes recovery records and a continuation workflow.
+Its training invocation is disabled by default. Read its recovery sections
+before running it; it is not an uninterrupted fresh-training script.
+
+## Limitations
+
+- The baseline used mixed precision through epoch 24; the modified run used it
+  through epoch 22. Both then recovered in full precision with restarted
+  optimizer and learning-rate schedules. This difference limits attribution
+  solely to ColorJitter.
+- Mapped patient identifiers overlap across the image-level partitions. These
+  results are not a patient-independent evaluation.
+- Results cover one dataset, split, and seed. External generalisation and
+  statistical significance have not been established.
+- No explicit stain-shift or lighting-shift robustness test was performed.
+- Visual failure analysis covers 18 sampled images and does not establish
+  error causes, label errors, or clinical validity.
+
+## Team and contributions
+
+| Member | Work |
+|---|---|
+| Manasa | Data preparation, augmentation pipeline, and prediction failure analysis |
+| Shanker | Model training, recovery, hypothesis, and methods documentation |
+| Vivekananda | Evaluation, experiment comparison, final IEEE paper, and project documentation |
+
+See [CONTRIBUTIONS.md](CONTRIBUTIONS.md) for the recorded contributions and
+[CONTRIBUTING.md](CONTRIBUTING.md) for the development workflow. Datasets,
+archives, credentials, and model checkpoints are excluded from Git.
+
+## Base paper
+
+A. Ali et al., “DANet a lightweight dilated attention network for malaria
+parasite detection,” *Scientific Reports*, vol. 15, article 36689, 2025.
+
+- [Paper](https://doi.org/10.1038/s41598-025-20402-1)
+- [Official implementation](https://github.com/asfakali/DANet)
+- [Background on the change from the initial paper selection](docs/base_paper_revision_after_m1.md)
